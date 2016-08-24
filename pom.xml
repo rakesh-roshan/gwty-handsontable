@@ -7,7 +7,7 @@
 	<packaging>gwt-lib</packaging>
 
 	<properties>
-		<gwtVersion>2.8.0-beta1</gwtVersion>
+		<gwtVersion>2.8.0-rc2</gwtVersion>
 	</properties>
 
 	<developers>
@@ -39,12 +39,11 @@
       <scope>provided</scope>
     </dependency>
     <dependency>
-       <groupId>com.gwidgets</groupId>
-       <artifactId>gwty-leaflet</artifactId>
-       <version>0.2-SNAPSHOT</version>
-       <!--  scope>system</scope>
-       <systemPath>/var/lib/gwidgets/gwty-leaflet-0.2-SNAPSHOT.jar</systemPath-->
+        <groupId>com.google.jsinterop</groupId>
+        <artifactId>jsinterop-annotations</artifactId>
+        <version>1.0.0</version>
     </dependency>
+
 	</dependencies>
 
 	<build>
@@ -65,7 +64,11 @@
 				<extensions>true</extensions>
 				<configuration>
 					<moduleName>com.gwidgets.api.GwtyHandsontable</moduleName>
+				    <compilerArgs>
+				        <compilerArg>-generateJsInteropExports</compilerArg>
+				    </compilerArgs>	
 				</configuration>
+				
 			</plugin>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
