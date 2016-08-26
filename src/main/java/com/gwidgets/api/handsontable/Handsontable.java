@@ -1,6 +1,7 @@
 package com.gwidgets.api.handsontable;
 
 import com.google.gwt.core.client.JavaScriptObject;
+import com.google.gwt.core.client.JsArrayInteger;
 import com.google.gwt.dom.client.Element;
 import com.gwidgets.api.handsontable.options.HandsontableOptions;
 
@@ -105,6 +106,16 @@ public class Handsontable {
     public native JavaScriptObject getDataAtRow(Number row);
 
     /**
+     * Returns a single row of the data (array or object, depending on what you
+     * have). row is the index of the row in the data source.
+     *
+     * @param row
+     *            Row index.
+     * @return A single row of the data
+     */
+    public native JavaScriptObject getSourceDataAtRow(Number row);
+
+    /**
      * Check if all cells in the row declared by the row argument are empty.
      *
      * @param row
@@ -117,4 +128,23 @@ public class Handsontable {
      * Rerender the table.
      */
     public native void render();
+
+    /**
+     * Returns indexes of the currently selected cells as an array [startRow,
+     * startCol, endRow, endCol].
+     *
+     * Start row and start col are the coordinates of the active cell (where the
+     * selection was started).
+     *
+     *
+     * @return indexes of the currently selected cells as an array [startRow,
+     *         startCol, endRow, endCol].
+     */
+    public native JsArrayInteger getSelected();
+
+    /**
+     * Deselects the current cell selection on grid.
+     * 
+     */
+    public native void deselectCell();
 }

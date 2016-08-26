@@ -3,8 +3,8 @@ package com.gwidgets.api.handsontable.options;
 import com.google.gwt.core.client.JavaScriptObject;
 import com.google.gwt.core.client.JsArray;
 import com.gwidgets.api.handsontable.callbacks.AfterChangeCallback;
-import com.gwidgets.api.handsontable.callbacks.CreateRowColCallback;
 import com.gwidgets.api.handsontable.callbacks.ModifyRowColCallback;
+import com.gwidgets.api.handsontable.callbacks.ModifyRowColRangeCallback;
 
 import jsinterop.annotations.JsProperty;
 import jsinterop.annotations.JsType;
@@ -19,7 +19,7 @@ public class HandsontableOptions {
     @JsProperty
     public JsArray<JavaScriptObject> data = null;
     @JsProperty
-    public String[] rowHeaders = null;
+    public Boolean rowHeaders = null;
     @JsProperty
     public String[] colHeaders = null;
     @JsProperty
@@ -31,11 +31,19 @@ public class HandsontableOptions {
     @JsProperty
     public AfterChangeCallback afterChange = null;
     @JsProperty
-    public CreateRowColCallback afterCreateRow = null;
+    public ModifyRowColRangeCallback afterCreateRow = null;
     @JsProperty
-    public CreateRowColCallback afterCreateCol = null;
+    public ModifyRowColRangeCallback beforeRemoveRow = null;
+    @JsProperty
+    public ModifyRowColRangeCallback afterRemoveRow = null;
+    @JsProperty
+    public ModifyRowColRangeCallback afterCreateCol = null;
+    @JsProperty
+    public ModifyRowColRangeCallback afterRemoveCol = null;
     @JsProperty
     public ModifyRowColCallback modifyRow = null;
     @JsProperty
     public ModifyRowColCallback modifyCol = null;
+    @JsProperty
+    public Boolean outsideClickDeselects = true;
 }
