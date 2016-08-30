@@ -144,7 +144,62 @@ public class Handsontable {
 
     /**
      * Deselects the current cell selection on grid.
-     * 
+     *
      */
     public native void deselectCell();
+
+    /**
+     * Returns the total number of columns in the grid.
+     *
+     * @return {@link Number} Total number of columns.
+     */
+    public native Number countCols();
+
+    /**
+     * Returns the number of empty columns. If the optional ending parameter is
+     * true, returns the number of empty columns at right hand edge of the
+     * table.
+     *
+     * @param ending
+     *            {@link Boolean} If true, will only count empty rows at the end
+     *            of the data source.
+     * @return {@link Number} Count empty cols
+     */
+    public native Number countEmptyCols(Boolean ending);
+
+    /**
+     * Returns the number of rendered columns (including columns partially or
+     * fully rendered outside viewport).
+     *
+     * @return {@link Number} Returns -1 if table is not visible else the number
+     *         of rendered columns
+     */
+    public native Number countRenderedCols();
+
+    /**
+     * Returns the total number of rows in the grid.
+     *
+     * @return {@link Number} Total number in rows the grid.
+     */
+    public native Number countRows();
+
+    /**
+     * Returns the number of empty rows. If the optional ending parameter is
+     * true, returns the number of empty rows at the bottom of the table.
+     *
+     * @param ending
+     *            {@link Boolean} If true, will only count empty rows at the end
+     *            of the data source.
+     * @return {@link Number} Count empty rows
+     */
+    public native Number countEmptyRows(Boolean ending);
+
+    /**
+     * Returns the number of rendered rows (including rows partially or fully
+     * rendered outside viewport).
+     *
+     * @return {@link Number} Returns -1 if table is not visible otherwise the
+     *         number of rendered rows
+     */
+    public native Number countRenderedRows();
 }

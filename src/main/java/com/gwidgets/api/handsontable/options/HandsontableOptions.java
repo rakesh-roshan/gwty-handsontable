@@ -3,6 +3,8 @@ package com.gwidgets.api.handsontable.options;
 import com.google.gwt.core.client.JavaScriptObject;
 import com.google.gwt.core.client.JsArray;
 import com.gwidgets.api.handsontable.callbacks.AfterChangeCallback;
+import com.gwidgets.api.handsontable.callbacks.CellRangeByPropCallback;
+import com.gwidgets.api.handsontable.callbacks.CellRangeCallback;
 import com.gwidgets.api.handsontable.callbacks.ModifyRowColCallback;
 import com.gwidgets.api.handsontable.callbacks.ModifyRowColRangeCallback;
 
@@ -41,9 +43,38 @@ public class HandsontableOptions {
     @JsProperty
     public ModifyRowColRangeCallback afterRemoveCol = null;
     @JsProperty
+    public CellRangeCallback afterSelectionEnd = null;
+    @JsProperty
+    public CellRangeByPropCallback afterSelectionEndByProp = null;
+    @JsProperty
+    public CellRangeCallback afterSelection = null;
+    @JsProperty
+    public CellRangeByPropCallback afterSelectionByProp = null;
+    @JsProperty
     public ModifyRowColCallback modifyRow = null;
     @JsProperty
     public ModifyRowColCallback modifyCol = null;
     @JsProperty
     public Boolean outsideClickDeselects = true;
+    @JsProperty
+    public Number maxRows = getInfinityNumber();
+    @JsProperty
+    public Number maxCols = getInfinityNumber();
+    @JsProperty
+    public Number startRows = 5;
+    @JsProperty
+    public Number startCols = 5;
+    @JsProperty
+    public String preventOverflow = getBooleanString(false);
+
+    public native static Number getInfinityNumber()
+    /*-{
+          return $wnd.Infinity;
+     }-*/;
+
+    public native static String getBooleanString(Boolean val)
+    /*-{
+          return val;
+     }-*/;
+
 }
